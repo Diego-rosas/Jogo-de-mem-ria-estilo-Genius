@@ -37,7 +37,7 @@ let lightColor = (element, number) => {
 }
 
 //checa se os botões clicados são os mesmos da ordem gerada no jogo
-let chekOrder = () => {
+let checkOrder = () => {
     for(let i in clickedOrder) {
         if(clickedOrder[i] != order[i]) {
             gameOver();
@@ -45,7 +45,7 @@ let chekOrder = () => {
         }
     }
     if(clickedOrder.length == order.length) {
-        alert(`Pontuação: $(score)\n Você acertou! Iniciando próximo nível!`);
+        alert(`Pontuação: ${score}\n Você acertou! Iniciando próximo nível!`);
         nextLevel();
     }
 } 
@@ -82,7 +82,7 @@ let nextLevel = () => {
 
 //função para game over
 let gameOver = () => {
-    alert(`Pontução: $(score)!\n Você perdeu o jogo!\n Clique em OK para iniciar um novo jogo!`);  
+    alert(`Pontução: ${score}!\n Você perdeu o jogo!\n Clique em OK para iniciar um novo jogo!`);  
     order = [];
     clickedOrder = [];
     

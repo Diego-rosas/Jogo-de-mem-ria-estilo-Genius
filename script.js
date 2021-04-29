@@ -20,7 +20,7 @@ let shuffleOrder = () => {
     clickedOrder = [];
 
     for(let i in order){
-        let elementColor = creatColorElemente(order[i]);
+        let elementColor = creatColorElement(order[i]);
         lightColor(elementColor, Number(i) + 1);
     }    
 }
@@ -44,8 +44,8 @@ let chekOrder = () => {
             break;
         }
     }
-    if(clickedOrder.length) == order.length {
-        alert('Pontuação: $(score)\n Você acertou! Iniciando próximo nível!');
+    if(clickedOrder.length == order.length) {
+        alert('Pontuação: $(score)!\n Você acertou! Iniciando próximo nível!');
         nextLevel();
     }
 }
@@ -53,23 +53,23 @@ let chekOrder = () => {
 //funcão para o clique do usuario
 let click = (color) => {
     clickedOrder[clickedOrder.length] = color;
-    creatColorElemente(color).classList.add('selected'); 
+    creatColorElement(color).classList.add('selected'); 
 
     setTimeout(() => {
-        elementColor(color).classList.remove('selected');
+        creatColorElement(color).classList.remove('selected');
         checkOrder();
     },250)
 }
 
 //criar a função que retorna a cor 
-let creatColorElemente = (color) => {
+let creatColorElement = (color) => {
     if(color == 0) {
         return green;
     }else if(color == 1) {
         return red;
     }else if(color == 2) {
         return yellow;
-    }else if(color == 2) {
+    }else if(color == 3) {
         return blue;
     }
 }
@@ -97,4 +97,12 @@ let playGame = () => {
     nextLevel();
 }
 
+//Funções de eventos de clique para as cores
+green.onclick = () => click(0);
+red.onclick = () => click(1);
+yellow.onclick = () => click(2);
+blue.onclick = () => click(3);
+
+
+//inicio do jogo
 playGame();

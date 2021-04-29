@@ -20,7 +20,7 @@ let shuffleOrder = () => {
     clickedOrder = [];
 
     for(let i in order){
-        let elementColor = creatColorElement(order[i]);
+        let elementColor = createColorElement(order[i]);
         lightColor(elementColor, Number(i) + 1);
     }    
 }
@@ -45,24 +45,24 @@ let chekOrder = () => {
         }
     }
     if(clickedOrder.length == order.length) {
-        alert('Pontuação: $(score)!\n Você acertou! Iniciando próximo nível!');
+        alert(`Pontuação: $(score)\n Você acertou! Iniciando próximo nível!`);
         nextLevel();
     }
-}
+} 
 
 //funcão para o clique do usuario
 let click = (color) => {
     clickedOrder[clickedOrder.length] = color;
-    creatColorElement(color).classList.add('selected'); 
+    createColorElement(color).classList.add('selected'); 
 
     setTimeout(() => {
-        creatColorElement(color).classList.remove('selected');
+        createColorElement(color).classList.remove('selected');
         checkOrder();
-    },250)
+    },250);
 }
 
 //criar a função que retorna a cor 
-let creatColorElement = (color) => {
+let createColorElement = (color) => {
     if(color == 0) {
         return green;
     }else if(color == 1) {
@@ -82,7 +82,7 @@ let nextLevel = () => {
 
 //função para game over
 let gameOver = () => {
-    alert('Pontução: $(score)!\n Você perdeu o jogo!\n Clique em OK para iniciar um novo jogo!');  
+    alert(`Pontução: $(score)!\n Você perdeu o jogo!\n Clique em OK para iniciar um novo jogo!`);  
     order = [];
     clickedOrder = [];
     
